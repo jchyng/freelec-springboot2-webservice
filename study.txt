@@ -1,0 +1,2 @@
+1. Jcenter()
+2. intelliJ에서  github 관리
