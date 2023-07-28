@@ -16,10 +16,17 @@ repositories {
 }
 
 dependencies {
+    //web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter'
+    //lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    // JUnit5
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'junit:junit:4.13.1'
 }
 
-tasks.named('test') {
+test {
     useJUnitPlatform()
 }
