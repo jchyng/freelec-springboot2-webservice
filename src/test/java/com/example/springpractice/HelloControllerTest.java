@@ -16,6 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 * @SpringBootTest가 아닌 @RunWith(SpringRunner.class)를 사용한 이유
 * @SpringBootTest는 application context를 전부 로딩해서 무겁다
 * @RunWith(Spring.class)는 @Autowired, @MockBean에 해당하는 것들만 application context에 로딩하게 되므로 가볍다
+* springBootTest와 Junit의 연결자 역할을 한다.
 * */
 @RunWith(SpringRunner.class)
 @WebMvcTest //spring MVC에 대한 기능들을 지원 = Controller, 단 service, component, repository 등은 지원하지 않는다.
