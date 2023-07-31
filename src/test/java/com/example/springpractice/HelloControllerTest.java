@@ -1,9 +1,15 @@
 package com.example.springpractice;
 
+import com.example.springpractice.web.HelloController;
+import org.apache.catalina.security.SecurityConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -19,12 +25,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 * springBootTest와 Junit의 연결자 역할을 한다.
 * */
 @RunWith(SpringRunner.class)
-@WebMvcTest //spring MVC에 대한 기능들을 지원 = Controller, 단 service, component, repository 등은 지원하지 않는다.
+@WebMvcTest(controllers = HelloController.class,
+            excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+            })
+//spring MVC에 대한 기능들을 지원 = Controller, 단 service, component, repository 등은 지원하지 않는다.
+//WebMvcTest는 SecurityConfig를 생성하기 위한 CustomOAuth2UserService를 스캔하지 않는다. -> 스캔 대상에서 securityConfig 제외
 public class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;    //Web API 테스트에 사용 = HTTP, GET, POST 등 사용 가능
 
+    @WithMockUser("USER")
     @Test
     public void hello가_리턴된다() throws Exception{
         String hello = "hello";
@@ -35,6 +47,7 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello));    //Controller에서 hello를 return하기 때문에 값이 맞는지 검증
     }
 
+    @WithMockUser("USER")
     @Test
     public void helloDto가_리턴된다() throws Exception{
         String name = "hello";

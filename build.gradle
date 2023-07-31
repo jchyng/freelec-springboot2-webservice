@@ -32,6 +32,9 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
     //Data JPA
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //============TEST============//
+    //Security Test
+    testImplementation 'org.springframework.security:spring-security-test'
     // JUnit5
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'junit:junit:4.13.1'

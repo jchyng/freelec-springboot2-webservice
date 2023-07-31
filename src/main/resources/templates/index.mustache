@@ -22,6 +22,8 @@
                 {{^userName}}   <!--userName이 존재하지 않을 경우-->
                     <!--security에서 기본적으로 제공하는 로그인 URL-->
                     <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+                    <!--Naver 로그인 요청 주소는 application-oauth.properties에 등록한 redirect_uri_template 값에 맞춰 자동으로 등록 -->
+                    <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
                 {{/userName}}
             </div>
         </div>
