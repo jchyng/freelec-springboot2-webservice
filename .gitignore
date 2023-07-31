@@ -1,5 +1,6 @@
 ### OAuth 정보는 감춰야하기 때문에 깃허브에 올리지않는다 ###
 application-oauth.properties
+application-real-db.properties
 
 HELP.md
 .gradle
