@@ -2,6 +2,7 @@ package com.example.springpractice.config.auth;
 
 
 import com.example.springpractice.config.auth.dto.OAuthAttributes;
+import com.example.springpractice.config.auth.dto.SessionUser;
 import com.example.springpractice.domain.user.User;
 import com.example.springpractice.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;

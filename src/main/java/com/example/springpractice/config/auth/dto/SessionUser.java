@@ -1,4 +1,4 @@
-package com.example.springpractice.config.auth;
+package com.example.springpractice.config.auth.dto;
 
 import com.example.springpractice.domain.user.User;
 import lombok.Getter;

@@ -21,6 +21,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     //Security
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    //Session JDBC
+    implementation 'org.springframework.session:spring-session-jdbc'
     //mustache
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     //lombok
