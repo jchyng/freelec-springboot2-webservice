@@ -2,7 +2,7 @@
 
 REPOSITORY=/home/ec2-user/app/step1
 PROJECT_NAME=freelec-springboot2-webservice
-PROJECT_FILENAME=SpringPractice
+PROJECT_FILENAME=SpringPractice-0.0.1-SNAPSHOT.jar
 
 cd $REPOSITORY/$PROJECT_NAME/
 
@@ -19,7 +19,7 @@ echo "> Build 파일 복사"
 cp $REPOSITORY/$PROJECT_NAME/build/libs/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
-CURRENT_PID=$(pgrep -f "${PROJECT_FILENAME}*.jar")
+CURRENT_PID=$(pgrep -f "$PROJECT_FILENAME")
 
 echo "> 현재 구동 중인 애플리케이션 PID: $CURRENT_PID"
 
@@ -32,11 +32,8 @@ else
 fi
 
 echo "> 새 애플리케이션 배포"
-JAR_NAME=$(ls -tr $REPOSITORY/*.jar | grep $PROJECT_FILENAME | tail -n 1)
-
-echo "> JAR NAME: $JAR_NAME"
 nohup java -jar \
     -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
     -Dspring.profiles.active=real \
-    $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
+    $PROJECT_FILENAME > $REPOSITORY/nohup.out 2>&1 &
 
