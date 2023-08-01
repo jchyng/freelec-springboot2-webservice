@@ -6,6 +6,11 @@ on:
       - main # (1) 브랜치 지정
   workflow_dispatch: # (2) 수동 실행
 
+env:
+  S3_BUCKET_NAME: "freelec-deploy"
+  PROJECT_NAME: "freelec-springboot2-webservice"
+
+
 jobs:
   build:
     runs-on: ubuntu-latest # (3)
@@ -53,7 +58,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://freelec-deploy/freelec-springboot2-webservice/$GITHUB_SHA.zip
+        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
 
       ### codeDeploy
       - name: Code Deploy
