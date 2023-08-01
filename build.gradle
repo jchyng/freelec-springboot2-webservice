@@ -35,11 +35,9 @@ dependencies {
     //MariaDB Driver
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client'
     //============TEST============//
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     //Security Test
     testImplementation 'org.springframework.security:spring-security-test'
-    // JUnit5
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'junit:junit:4.13.1'
 }
 
 test {
