@@ -5,7 +5,7 @@ jdk:
 # 어느 브랜치가 푸시될 때 실행할 지 지정
 branches:
   only:
-    - master
+    - main
 
 # Travis CI 서버의 HOME  -> 해당 디렉토리를 캐시하여, 같은 의존성은 다음 배포 때부터 받지않도록 설정
 cache:
