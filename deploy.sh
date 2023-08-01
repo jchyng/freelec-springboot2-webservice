@@ -9,7 +9,7 @@
   git pull
 
   echo "> 프로젝트 Build 시작"
-  ./gradlew clean build
+  ./gradlew build
 
   echo "> step1 디렉토리로 이동"
   cd $REPOSITORY
@@ -31,7 +31,7 @@
   fi
 
   echo "> 새 애플리케이션 배포"
-  JAR_NAME=$(ls -tr $REPOSITORY/ | grep *.jar }| tail -n 1)
+  JAR_NAME=$(ls -tr $REPOSITORY/*.jar | grep $PROJECT_NAME | tail -n 1)
 
   echo "> JAR NAME: $JAR_NAME"
-  nohup java -jar \ -Dspring.config.location=classpath:/application.properties, /home/ec2-user/app/application-oauth.properties, /home/ec2-user/app/application-real-db.properties \ -Dspring.profiles.active=real \$REPOSITORY/$JAR_NAME 2>&1 &
+  nohup java -jar -Dspring.config.location=classpath:/application.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real $JAR_NAME > /dev/null 2>&1 &
