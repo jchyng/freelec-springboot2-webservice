@@ -2,8 +2,8 @@ name: freelec-springboot2-webservice
 
 on:
   push:
-    branches: #(1) 적용할 branch 설정
-      - main
+    branches:
+      - main # (1) 브랜치 지정
   workflow_dispatch: # (2) 수동 실행
 
 jobs:
@@ -24,4 +24,5 @@ jobs:
         shell: bash
 
       - name: Build with Gradle
+        run: ./gradlew clean build # (7)
         shell: bash
