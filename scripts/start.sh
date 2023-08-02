@@ -8,7 +8,7 @@ REPOSITORY=/home/ec2-user/app/step3
 PROJECT_NAME=freelec-springboot2-webservice
 
 echo "> Build 파일 복사"
-echo "> cp $REPOSITORY/*.jar $REPOSITORY/"
+echo "> cp $REPOSITORY/$PROJECT_NAME/build/libs/*.jar $REPOSITORY/"
 cp $REPOSITORY/*.jar $REPOSITORY/
 
 echo "> 새 애플리케이션 배포"
