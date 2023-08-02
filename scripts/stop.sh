@@ -1,7 +1,9 @@
+#!/usr/bin/env bash
+
 #기존 엔진엑스에 연결되어 있진 않지만, 실행 중이던 스프링 부트 종료
 
 ABSPATH=$(readlink -f $0)
-ABSDIR=$(dirname $ABSPATH)  #stop.sh가 속해있는 경로를 찾는다.
+ABSDIR=$(dirname $ABSPATH)  # stop.sh가 속해있는 경로를 찾는다.
 source ${ABSDIR}/profile.sh
 
 IDLE_PORT=$(find_idle_port)
@@ -15,6 +17,7 @@ then
 else
   echo "> kill -15 $IDLE_PID"
   kill -15 ${IDLE_PID}
-  sleep 5
+  sleep 10 # 종료 후 10초 대기 (종료 시간은 애플리케이션에 따라 조절 가능)
 fi
+
 

@@ -1,9 +1,8 @@
-#엔진엑스가 바라보는 스프링 부트를 최신 버전으로 변경
 #!/usr/bin/env bash
 
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
-source ./profile.sh
+source ${ABSDIR}/profile.sh
 
 function switch_proxy() {
     IDLE_PORT=$(find_idle_port)
