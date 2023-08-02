@@ -7,6 +7,8 @@ ABSDIR=$(dirname $ABSPATH)
 source ${ABSDIR}/profile.sh
 source ${ABSDIR}/switch.sh
 
+
+echo "${ABSDIR}/profile.sh"
 IDLE_PORT=$(find_idle_port)
 
 echo "> Health Check Start!"
