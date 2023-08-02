@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step2
+REPOSITORY=/home/ec2-user/app/step3
 PROJECT_NAME=freelec-springboot2-webservice
 PROJECT_FILENAME=SpringPractice
 

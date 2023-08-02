@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/app/step2/freelec-springboot2-webservice/ # 프로젝트 이름
+    destination: /home/ec2-user/app/step3/freelec-springboot2-webservice/ # 프로젝트 이름
     overwrite: yes
 
 permissions:
@@ -12,7 +12,15 @@ permissions:
     group: ec2-user
 
 hooks:
+  AfterInstall:
+    - location: /scripts/stop.sh
+      timout: 60
+      runas: ec2-user
   ApplicationStart:
-    - location: /scripts/deploy.sh
+    - location: /scripts/start.sh
+      timeout: 60
+      runas: ec2-user
+  ValidateService:
+    - location: /scripts/health.sh
       timeout: 60
       runas: ec2-user
