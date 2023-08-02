@@ -1,5 +1,6 @@
-package com.example.springpractice.config.auth;
+package com.example.springpractice.config;
 
+import com.example.springpractice.config.auth.CustomOauth2userService;
 import com.example.springpractice.domain.user.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,7 @@ public class    SecurityConfig {
         http.csrf().disable().headers().frameOptions().disable()    //h2-console 화면을 사용하기 위해 해당 옵션들을 disable
                 .and()
                     .authorizeRequests()    //url 별 권한 설정 시작점 authorizeRequests()가 선언되어야만 antMatchers() 사용 가능
-                    .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**")  //antMathchers로 URL, HTTP Method 별 권한 관리가 가능
+                    .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile")  //antMathchers로 URL, HTTP Method 별 권한 관리가 가능
                     .permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name())    //post면서 해당 url에서 Role이 user인 사람만 가능
                     .anyRequest()   //설정된 url외의 url들
