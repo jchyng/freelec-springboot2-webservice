@@ -4,7 +4,7 @@
 
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
-source ${ABSDIR}/profile.sh
+source ./properties.sh
 source ${ABSDIR}/switch.sh
 
 
